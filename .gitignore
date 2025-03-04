@@ -1,0 +1,13 @@
+.env
+.venv
+venv
+*.md
+*.pyc
+credentials.json
+token.json
+__pycache__*
+__init__.py
+
+.langgraph_api/
+
+gmail_labels.json

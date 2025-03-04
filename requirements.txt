@@ -1,0 +1,33 @@
+# Environment variable loader
+python-dotenv
+
+# Langtrace SDK for monitoring
+langtrace-python-sdk
+
+# HTTP requests
+requests
+
+# LangChain integrations for DeepSeek and OpenAI
+langchain-deepseek
+langchain-openai
+langchain-core
+
+# Graph and agent orchestration
+langgraph
+
+# Data validation and parsing
+pydantic
+
+# Rich terminal output formatting
+rich
+
+# Timezone handling
+pytz
+
+# Backported and additional type hints
+typing_extensions
+
+# Google Auth
+google-auth
+google_auth_oauthlib
+google-api-python-client
