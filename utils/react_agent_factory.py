@@ -1,7 +1,8 @@
 # agent_factory.py
 from typing import Literal
-from langchain_openai import ChatOpenAI
+from langchain_deepseek import ChatDeepSeek
 from langchain_core.messages import AIMessage
+from langchain_ollama import ChatOllama
 from langgraph.types import Command
 from langgraph.graph import MessagesState
 from langgraph.prebuilt import create_react_agent
@@ -22,7 +23,7 @@ def create_agent_node(agent_name: str, default_goto: str = "supervisor"):
     memory = MemorySaver()
 
     # Create the LLM and the agent
-    agent_llm = ChatOpenAI(model=agent_model)
+    agent_llm = ChatOllama(model=agent_model)
     agent = create_react_agent(
         agent_llm,
         tools=agent_tools,

@@ -1,7 +1,7 @@
 from typing import Literal
 from typing_extensions import TypedDict
-from langchain_openai import ChatOpenAI
 from langchain_deepseek import ChatDeepSeek
+from langchain_ollama import ChatOllama
 from langgraph.graph import MessagesState, END
 from langgraph.types import Command
 from config import load_yaml_config
@@ -29,7 +29,7 @@ for agent_key, agent_data in config["agents"].items():
 agent_members_prompt_final = "\n".join(agent_members_prompt)
 
 # # Create LLM instance (or import from shared config)
-supervisor_llm = ChatOpenAI(model="gpt-4o")
+supervisor_llm = ChatOllama(model ="deepseek-r1:7b")
 
 class State(MessagesState):
     next: str

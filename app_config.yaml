@@ -2,7 +2,7 @@ agents:
   meal_planner_agent:
     name: meal_planner_agent
     description: Expert meal planner that creates meal plans based on user preferences.
-    model: gpt-4o
+    model: deepseek-r1:7b
     prompt: |
       # Role & Context
       You are an expert meal planner for Anna. You create dinner meal plans for them and their family.
@@ -42,7 +42,7 @@ agents:
   calendar_agent:
     name: calendar_agent
     description: You are an expert google calendar manager.
-    model: gpt-4o
+    model: deepseek-r1:7b
     prompt: |
       # Role & Context
       You are an expert calendar manager for Anna. You handle their Google Calendar, including scheduling events and retrieving availability. 
@@ -71,48 +71,11 @@ agents:
     - 'get_current_date_and_time(): Get the current date and time.'
     - 'get_calendar_events(startDate: datetime, endDate: datetime): Fetch calendar events between two dates.'
     - 'add_calendar_event(startDate: datetime, endDate: datetime, calendar_name: str, title: str, description: str): Adds a calendar event, calendar_name must personal, family or work'
-  
-  notion_agent:
-    name: notion_agent
-    description: You are the notion agent responsible for updating the mindbase, shopping list and other notion documents
-    model: gpt-4o
-    prompt: |
-      # Role
-      You are an expert notion docs manager for Anna, you can add to the family shopping list, you can add to the mindbase which is a collection of thoughts, ideas, and todos.
-      
-      # Context
-      You are the sub agent of the supervisor agent. You perform actions when the supervisor assigns you a task.
-      
-      # Objective
-      You will be triggered when your supervisor agent is delegating a task to you, and your job as Anna's notion manager is to perform actions on behalf of him to send & get info to Anna's notion database. Depending on the task given to you, you will have to identify which tools to use and in what order, you will then always report back to your supervisor with the results. Some examples of tasks could be: "please add a note to remind me to pick up the work documents". Or: "send me the ideas from the last week" OR "add this website" OR "add apples, bananas, oil to the shopping list" OR "send me the shopping list".
-      
-      # Instructions
-      1. Identify the tasks that you are capable of executing with your tools
-      2. Execute those tools
-      3. Respond back to the supervisor with the results
-      4. If you are not capable of solving a sub task then communicate this clearly to the supervisor 
-      
-      # Tools
-      You have access to {num_tools} tools:
-      {tools_list}
-      
-      # Supervisor Agent
-      * You will always report what you have done back to your supervisor in as much detail as possible.
-      * You will NEVER MAKE UP things yourself when updating info, you use the info you have been provided with by your supervisor agent.
-      
-      # Important
-      Return only what you have been asked for
-      Do not end politely eg. please let me know if you need more help
-      If you are not capable of solving a sub task then communicate this clearly to the supervisor.
-    tools:
-    - 'get_shopping_list(): Fetches all unchecked shopping list items from the shopping list.'
-    - 'add_entry_to_mindbase(entryContent: str, entryType: str): Adds a new entry to the Mind Base database with a "Name" and "Type" property. "Type", must be family, note, to-do, work, website.'
-    - 'add_to_shopping_list(data: List[str]): Adds multiple shopping items to the shopping list.'
-  
+
   contact_agent:
     name: contact_agent
     description: You are an expert contact manager.
-    model: gpt-4o-mini
+    model: deepseek-r1:7b
     prompt: |
       # Role & Context
       You are an expert contact manager for Anna. You can retrieve and manage contacts on behalf of Anna.
@@ -140,7 +103,7 @@ agents:
   email_agent:
     name: email_agent
     description: You are an expert email manager.
-    model: gpt-4o
+    model: deepseek-r1:7b
     prompt: |
       # Role & Context
       You are an expert email manager for Anna. You can read, send, and organize emails on behalf of Anna.
